@@ -34,13 +34,6 @@ class Monitoring{
     }
 
     public void getNews(String keyword, int display, int start, SortType sort ){
-        //https://openapi.naver.com/v1/search/news
-//        get /v1/search/news
-//        HOST: openapi.naver.com
-//        Content-Type: plain/text
-//        X-Naver-Client-Id: gev776uTcqMJrRPQFy9g
-//        X-Naver-Client-Secret: ZhlfTe6L5h
-
         String url = "https://openapi.naver.com/v1/search/news.json";
         String params = "?query=%s&display=%d&start=%d&sort=%s".formatted(keyword, display, start, sort.value);
 
@@ -93,13 +86,6 @@ class Monitoring{
     }
 
     private String getDataFromAPI(String path, String keyword, int display, int start, SortType sort ) throws Exception {
-        //https://openapi.naver.com/v1/search/news
-//        get /v1/search/news
-//        HOST: openapi.naver.com
-//        Content-Type: plain/text
-//        X-Naver-Client-Id: gev776uTcqMJrRPQFy9g
-//        X-Naver-Client-Secret: ZhlfTe6L5h
-
         String url = "https://openapi.naver.com/v1/search/%s".formatted(path);
         String params = "?query=%s&display=%d&start=%d&sort=%s".formatted(keyword, display, start, sort.value);
 
@@ -116,7 +102,7 @@ class Monitoring{
 
             logger.info(Integer.toString(response.statusCode()));
             logger.info(response.body());
-            // split하든 나중에 GSON, Jackson
+
             return response.body();
         }catch (Exception e){
             logger.severe(e.getMessage());
