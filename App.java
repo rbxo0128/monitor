@@ -48,7 +48,7 @@ class Monitoring{
             }
             logger.info(Arrays.toString(result));
             logger.info("타이틀 파일 생성");
-            File file = new File("news_%s.txt".formatted(keyword));
+            File file = new File("%d_news_%s.txt".formatted(new Date().getTime(),keyword));
             if (!file.exists()) {
                 logger.info(file.createNewFile() ? "신규 생성" : "이미 있음");
             }
